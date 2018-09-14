@@ -1,0 +1,64 @@
+---
+spring:
+  security:
+      user:
+        name: admin
+        password: 123456
+  application:
+    name: spring-cloud-eureka
+  profiles: eruker-profile1
+server:
+  port: 8001
+eureka:
+  instance:
+    hostname: eruker-yingke1
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@eruker-yingke2:8002/eureka/,http://admin:123456@eruker-yingke3:8003/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+---
+spring:
+  security:
+      user:
+        name: admin
+        password: 123456
+  application:
+    name: spring-cloud-eureka
+  profiles: eruker-profile2
+server:
+  port: 8002
+eureka:
+  instance:
+    hostname: eruker-yingke2
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@eruker-yingke1:8001/eureka/,http://admin:123456@eruker-yingke3:8003/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+---
+spring:
+  security:
+      user:
+        name: admin
+        password: 123456
+  application:
+    name: spring-cloud-eureka
+  profiles: eruker-profile3
+server:
+  port: 8003
+eureka:
+  instance:
+    hostname: eruker-yingke3
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@eruker-yingke1:8001/eureka/,http://admin:123456@eruker-yingke2:8002/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+
+
+
+
