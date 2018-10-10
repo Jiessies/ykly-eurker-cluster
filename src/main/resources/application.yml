@@ -11,10 +11,15 @@ server:
   port: 8001
 eureka:
   instance:
-    hostname: eruker-yingke1
+#    hostname: eruker-yingke1
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    hostname: ${spring.cloud.client.ip-address}
+    ip-address: 172.16.21.229
   client:
     serviceUrl:
-      defaultZone: http://admin:123456@eruker-yingke2:8002/eureka/,http://admin:123456@eruker-yingke3:8003/eureka/
+#      defaultZone: http://admin:123456@eruker-yingke2:8002/eureka/,http://admin:123456@eruker-yingke3:8003/eureka/
+       defaultZone: http://admin:123456@localhost:8002/eureka/,http://admin:123456@localhost:8003/eureka/
     register-with-eureka: true
     fetch-registry: true
 
@@ -31,10 +36,15 @@ server:
   port: 8002
 eureka:
   instance:
-    hostname: eruker-yingke2
+#    hostname: eruker-yingke2
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    hostname: ${spring.cloud.client.ip-address}
+    ip-address: 172.16.21.229
   client:
     serviceUrl:
-      defaultZone: http://admin:123456@eruker-yingke1:8001/eureka/,http://admin:123456@eruker-yingke3:8003/eureka/
+#      defaultZone: http://admin:123456@eruker-yingke1:8001/eureka/,http://admin:123456@eruker-yingke3:8003/eureka/
+       defaultZone: http://admin:123456@localhost:8001/eureka/,http://admin:123456@localhost:8003/eureka/
     register-with-eureka: true
     fetch-registry: true
 
@@ -51,10 +61,15 @@ server:
   port: 8003
 eureka:
   instance:
-    hostname: eruker-yingke3
+#    hostname: eruker-yingke3
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    hostname: ${spring.cloud.client.ip-address}
+    ip-address: 172.16.21.229
   client:
     serviceUrl:
-      defaultZone: http://admin:123456@eruker-yingke1:8001/eureka/,http://admin:123456@eruker-yingke2:8002/eureka/
+#      defaultZone: http://admin:123456@eruker-yingke1:8001/eureka/,http://admin:123456@eruker-yingke2:8002/eureka/
+      defaultZone: http://admin:123456@localhost:8001/eureka/,http://admin:123456@localhost:8002/eureka/
     register-with-eureka: true
     fetch-registry: true
 
