@@ -12,9 +12,10 @@ server:
 eureka:
   instance:
     prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    hostname: ${spring.cloud.client.ip-address}
-    ip-address: 127.0.0.1
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#    hostname: ${spring.cloud.client.ip-address}
+#    ip-address: 127.0.0.1
+    hostname: 127.0.0.1
     status-page-url-path: /actuator/info
     health-check-url-path: /actuator/health
   client:
@@ -43,9 +44,10 @@ server:
 eureka:
   instance:
     prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    hostname: ${spring.cloud.client.ip-address}
-    ip-address: 127.0.0.1
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#    hostname: ${spring.cloud.client.ip-address}
+#    ip-address: 127.0.0.1
+    hostname: 127.0.0.1
     status-page-url-path: /actuator/info
     health-check-url-path: /actuator/health
   client:
