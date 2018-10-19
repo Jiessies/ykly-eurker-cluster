@@ -1,0 +1,192 @@
+---
+spring:
+  security:
+      user:
+        name: admin
+        password: 123456
+  application:
+    name: test-spring-cloud-eureka
+  profiles: eureka-profile1
+server:
+  port: 5701
+eureka:
+#  server:
+#    enable-self-preservation: false
+#    eviction-interval-timer-in-ms: 4000
+  instance:
+    hostname: test-eureka-yingke1
+#    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#    hostname: ${spring.cloud.client.ip-address}
+#    ip-address: 192.168.128.43
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@test-eureka-yingke2:5702/eureka/
+#       defaultZone: http://admin:123456@192.168.128.43:5702/eureka/,http://admin:123456@192.168.128.43:5703/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+---
+spring:
+  security:
+      user:
+        name: admin
+        password: 123456
+  application:
+    name: test-spring-cloud-eureka
+  profiles: eureka-profile2
+server:
+  port: 5702
+eureka:
+#  server:
+#      enable-self-preservation: false
+#      eviction-interval-timer-in-ms: 4000
+  instance:
+    hostname: test-eureka-yingke2
+#    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#    hostname: ${spring.cloud.client.ip-address}
+#    ip-address: 192.168.128.43
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@test-eureka-yingke1:5701/eureka/
+#       defaultZone: http://admin:123456@192.168.128.43:5701/eureka/,http://admin:123456@192.168.128.43:5703/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+---
+spring:
+  security:
+      user:
+        name: admin
+        password: 123456
+  application:
+    name: test-spring-cloud-eureka
+  profiles: eureka-profile3
+server:
+  port: 5703
+eureka:
+#  server:
+#      enable-self-preservation: false
+#      eviction-interval-timer-in-ms: 4000
+  instance:
+    hostname: test-eureka-yingke3
+#    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#    hostname: ${spring.cloud.client.ip-address}
+#    ip-address: 192.168.128.43
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@eruker-yingke1:5701/eureka/,http://admin:123456@eruker-yingke2:5702/eureka/
+#      defaultZone: http://admin:123456@192.168.128.43:5701/eureka/,http://admin:123456@192.168.128.43:5702/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+spring:
+  security:
+      user:
+        name: admin
+        password: 123456
+  application:
+    name: spring-cloud-eureka-product
+  profiles: eruker-product1
+server:
+  port: 8007
+eureka:
+#  server:
+#      enable-self-preservation: false
+#      eviction-interval-timer-in-ms: 4000
+  instance:
+#    hostname: eruker-yingke1
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    hostname: ${spring.cloud.client.ip-address}
+    ip-address: 192.168.128.43
+  client:
+    serviceUrl:
+#      defaultZone: http://admin:123456@eruker-yingke2:8002/eureka/,http://admin:123456@eruker-yingke3:8003/eureka/
+       defaultZone: http://admin:123456@192.168.128.43:8008/eureka/,http://admin:123456@192.168.128.43:8009/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+---
+spring:
+  security:
+      user:
+        name: admin
+        password: 123456
+  application:
+    name: spring-cloud-eureka-product
+  profiles: eruker-product2
+server:
+  port: 8008
+eureka:
+#  server:
+#      enable-self-preservation: false
+#      eviction-interval-timer-in-ms: 4000
+  instance:
+#    hostname: eruker-yingke2
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    hostname: ${spring.cloud.client.ip-address}
+    ip-address: 192.168.128.43
+  client:
+    serviceUrl:
+#      defaultZone: http://admin:123456@eruker-yingke1:8001/eureka/,http://admin:123456@eruker-yingke3:8003/eureka/
+       defaultZone: http://admin:123456@192.168.128.43:8007/eureka/,http://admin:123456@192.168.128.43:8009/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+---
+spring:
+  security:
+      user:
+        name: admin
+        password: 123456
+  application:
+    name: spring-cloud-eureka-product
+  profiles: eruker-product3
+server:
+  port: 8009
+eureka:
+#  server:
+#      enable-self-preservation: false
+#      eviction-interval-timer-in-ms: 4000
+  instance:
+#    hostname: eruker-yingke3
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    hostname: ${spring.cloud.client.ip-address}
+    ip-address: 192.168.128.43
+  client:
+    serviceUrl:
+#      defaultZone: http://admin:123456@eruker-yingke1:8001/eureka/,http://admin:123456@eruker-yingke2:8002/eureka/
+      defaultZone: http://admin:123456@192.168.128.43:8007/eureka/,http://admin:123456@192.168.128.43:8008/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+
+
+
+
+
+
+
