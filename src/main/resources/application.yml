@@ -15,7 +15,7 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://admin:123456@test-eureka-yingke2:5702/eureka/
+      defaultZone: http://admin:123456@test.yktour.com.cn:5702/eureka/
     register-with-eureka: true
     fetch-registry: true
 
@@ -32,7 +32,7 @@ server:
   port: 5702
 eureka:
   instance:
-    hostname: test-eureka-yingke2
+    hostname: test.yktour.com.cn
     prefer-ip-address: true
   client:
     serviceUrl:
