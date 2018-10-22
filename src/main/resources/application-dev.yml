@@ -1,0 +1,68 @@
+---
+spring:
+  security:
+    user:
+      name: admin
+      password: 123456
+  application:
+    name: spring-cloud-eureka1
+  profiles: eruker-profile1
+server:
+  port: 8001
+eureka:
+  instance:
+    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#    hostname: ${spring.cloud.client.ip-address}
+#    ip-address: 127.0.0.1
+    hostname: 127.0.0.1
+    status-page-url-path: /actuator/info
+    health-check-url-path: /actuator/health
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    prefer-same-zone-eureka: true
+    #地区
+    region: beijing
+    availability-zones:
+      beijing: zone-1,zone-2
+    service-url:
+      zone-1: http://172.16.21.229:8001/eureka/
+      zone-2: http://172.16.11.234:8001/eureka/
+
+---
+spring:
+  security:
+    user:
+      name: admin
+      password: 123456
+  application:
+    name: spring-cloud-eureka2
+  profiles: eruker-profile2
+server:
+  port: 8001
+eureka:
+  instance:
+    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#    hostname: ${spring.cloud.client.ip-address}
+#    ip-address: 127.0.0.1
+    hostname: 127.0.0.1
+    status-page-url-path: /actuator/info
+    health-check-url-path: /actuator/health
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    prefer-same-zone-eureka: true
+    #地区
+    region: beijing
+    availability-zones:
+      beijing: zone-2,zone-1
+    service-url:
+      zone-1: http://172.16.21.229:8001/eureka/
+      zone-2: http://172.16.11.234:8001/eureka/
+
+
+
+
+
